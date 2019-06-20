@@ -1,0 +1,21 @@
+#score-rating td, #time-rating td{
+    background-color: transparent;
+    /* border: 1px solid #8f8f8f; */
+    border: none;
+    padding: 3px;
+}
+
+#score-rating, #time-rating{
+    display: inline-block;
+}
+
+#score-rating td:after, #time-rating td:after{
+    margin: 0;
+}
+#score-rating table, #time-rating table{
+
+}
+
+#rating{
+    margin-top: 15px;
+}

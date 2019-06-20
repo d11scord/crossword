@@ -1,0 +1,106 @@
+html, body{
+    background-color: #ddd;
+    height: 100%;
+}
+
+.main__title {
+	font-size: 20pt;
+	text-align: center;
+	margin:30px 15px;
+}
+
+.add-puzzle {
+  display: none;
+}
+
+#start-game, #get-rating {
+    background-color: #343a40;
+    color: white;
+    border: none;
+    padding: 0.5em 1.5em;
+    margin: auto;
+}
+
+#timer{
+    margin-top: 20px;
+    text-align: center;
+}
+
+#load-spinner {
+  width: 64px;
+  height: 64px;
+  margin: auto;
+  margin-top: 40%;
+}
+
+#load-spinner:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 6px;
+  box-sizing: border-box;
+  border: 26px solid #fff;
+  border-color: #888 transparent #888 transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+.footer {
+  width: 100%;
+  min-height: 80px;
+  background-color: #343a40;
+  color: white;
+  flex: 0 0 auto;
+}
+
+.footer p{
+    margin: 0;
+    padding: 0.1em;
+    font-size: 10pt;
+}
+
+.footer .address{
+    text-align: right;
+}
+.footer .authors{
+    text-align: left;
+}
+
+.navbar-menu {
+  margin-left: auto;
+}
+
+@media screen and (min-width: 576px) and (max-width: 991.98px) {
+    .hello{
+        display: none;
+    }
+}

@@ -1,0 +1,22 @@
+
+<!--
+Количество зарегистрированных пользователей
+Количество уникальных пользователей за день (по часам)
+Количество уникальных пользователей за неделю (по дням)
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistics</title>
+</head>
+<body>
+Количество зарегистрированных пользовалей:{{ users.count }}
+<br>
+{% for user in users %}
+  {{ user }} : {{user.statistic.score}} <br>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% bootstrap_css %}
+    <title>Регистрация</title>
+</head>
+<body>
+  <div class="container">
+        <div class="auth-box">
+            <div class="head">Регистрация в системе</div>
+            <div class="body">
+                <div style="margin:auto">
+                    {% if form.errors %}
+                        <p>Введённые вами данные не соответствуют требованиям. Пожалуйста, попробуйте снова.</p>
+                    {% endif %}
+                    <form method="post" action="{% url 'users:register' %}" class="form">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                    {% buttons %}
+                        <button name="submit" class="btn btn-submit">Зарегистрироваться</button>
+                    {% endbuttons %}
+                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    body{
+        background: #202020;
+    }
+
+    .auth-box{
+        border-style:solid;
+        border-color:black;
+        border-radius:7pt;
+        margin:auto;
+        margin-top:6%;
+        border-width: thin;
+        background: #f9f9f8;
+    }
+
+    .body{
+        padding:4%;
+    }
+
+    .head{
+        background-color: #3bb0ef;
+        height:45pt;
+        width:100%;
+        color:white;
+        text-align:center;
+        font-family: Verdana;
+        font-size: 18pt;
+        border-radius:  6pt 6pt 0 0;
+        padding-top: 8pt;
+    }
+
+    .btn-submit{
+        background: #3bb0ef;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 991.98px) {
+         .auth-box{
+            max-width:65%;
+        }
+    }
+
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+        .auth-box{
+            max-width:50%;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .auth-box{
+            max-width:45%;
+        }
+    }
+</style>
+</html>

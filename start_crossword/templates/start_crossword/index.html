@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/crossword_grid.css' %}">
+	<link rel="stylesheet" href="{% static 'css/notification.css' %}">
+	<link rel="stylesheet" href="{% static 'css/score.css' %}">
+	<link rel="shortcut icon" href="{% static '/favicon.ico' %}" />
+	<title>Кроссворд</title>
+</head>
+<body class="body">
+	<div class="bg-dark">
+		<header class="container">
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<a class="navbar-brand navbar-nav" href="#" style="display:block; vertical-align:middle"> <img src="{% static 'img/logo.png' %}" style="width:1.5em; height:1.5em"> &nbsp ЛУЧШИЕ IT-КРОССВОРДЫ</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarButtons" aria-controls="navbarButtons" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarButtons">
+			    <ul class="navbar-nav navbar-menu">
+					{% if user.is_authenticated %}
+				<li class="nav-item active">
+	        		<span class="nav-link hello">Привет, {{ user.username }}</span>
+	      		</li>
+				{% if user.is_staff %}
+					<li class="nav-item">
+						<a href="{% url 'admin:index' %}" class="nav-link">Админ-панель</a>
+					</li>
+					<li class="nav-item">
+						<a href="/admin/request/request/overview/" class="nav-link">Статистика</a>
+					</li>
+				{% endif %}
+					<li class="nav-item">
+						<a href="{% url 'users:logout' %}" class="nav-link">Выйти</a>
+					</li>
+			{% else %}
+				<li class="nav-item">
+					<a href="{% url 'users:login' %}" class="nav-link">Вход</a>
+				</li>
+				<li class="nav-item">
+					<a href="{% url 'users:register' %}" class="nav-link">Регистрация</a>
+				</li>
+			{% endif %}
+			    </ul>
+			  </div>
+			</nav>
+		</header>
+	</div>
+
+	<main class="main container">
+		<div class="main__title" id="title">Факультет информационных технологий</div>
+		<div class="row">
+			<div class="col-12 col-lg-4 add-puzzle">
+				<div class="red">
+					<div id="puzzle-clues">
+						<p class="clue-head-down"></p>
+						<ul id="down"></ul>
+						<p class="clue-head-across"></p>
+						<ul id="across"></ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-lg-6 start-game" style="text-align: center">
+				<div id="puzzle-wrapper"></div>
+				<button id="start-game">Начать игру</button>
+				<div id="load-spinner"></div>
+				<div id="timer"></div>
+			</div>
+
+			<div class="col-12 col-lg-6 rating" style="text-align: center">
+				<button id="get-rating">Рейтинг</button>
+				<div id="rating">
+					<div id="score-rating"></div>
+					<div id="time-rating"></div>
+				</div>
+			</div>
+			<div id="snackbar"></div>
+		</div>
+	</main>
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-6 authors">
+					<p>©171-371, 2019</p>
+				</div>
+				<div class="col-6 address">
+					<p>Адрес университета и контактная информация:</p>
+					<p>Москва. Большая Семёновская ул, 38</p>
+					<p>+7 495 223-05-23</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+	<script src="{% static 'js/ajax.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+	<script src="{% static 'js/jquery-1.6.2.js' %}"></script>
+	<script src="{% static 'js/jquery.crossword.js' %}"></script>
+</body>
+</html>

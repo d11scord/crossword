@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="robots" content="NONE,NOARCHIVE">
+	<title>Вход</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container">
+        <div class="auth-box">
+            <div class="head">Вход в систему</div>
+            <div class="body">
+                <div style="margin: auto">
+                    {% if form.errors %}
+                        <p>Неверный логин или пароль. Пожалуйста, повторите ввод.</p>
+                    {% endif %}
+
+                    <form method="post" action="{% url 'users:login' %}" class="form">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                    {% buttons %}
+                        <button name="submit" class="btn btn-submit">Войти</button>
+                    {% endbuttons %}
+                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    body{
+        background: #202020;
+    }
+
+    .auth-box{
+        border-style:solid;
+        border-color:black;
+        border-radius:7pt;
+        margin:auto;
+        margin-top:6%;
+        border-width: thin;
+        background: #f9f9f8;
+    }
+
+    .body{
+        padding:4%;
+    }
+
+    .head{
+        background-color: #43ef96;
+        height:45pt;
+        width:100%;
+        color:white;
+        text-align:center;
+        font-family: Verdana;
+        font-size: 18pt;
+        border-radius:  6pt 6pt 0 0;
+        padding-top: 8pt;
+    }
+
+    .btn-submit{
+        background: #43ef96;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 991.98px) {
+         .auth-box{
+            max-width:65%;
+        }
+    }
+
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+        .auth-box{
+            max-width:50%;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .auth-box{
+            max-width:45%;
+        }
+    }
+
+</style>
+</html>
+
+
+
