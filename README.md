@@ -5,7 +5,7 @@ This is my university project. Builded on **Django**
 
 ``` bash
 # install dependencies
-pip install requirements.txt
+pip install -r requirements.txt
 
 # activate virtual environment
 venv\Scripts\activate
